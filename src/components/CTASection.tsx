@@ -26,7 +26,7 @@ export default function CTASection({ finalScore }: Props) {
           </p>
 
           <a
-            href="https://wa.me/5579999232104?text=Olá!%20Recebi%20meu%20relatório%20do%20Passeio%20e%20quero%20agendar%20uma%20aula."
+            href="https://wa.me/5579999232104?text=Olá!%20quero%20agendar%20uma%20aula."
             target="_blank"
             className="inline-flex items-center gap-3 text-green-600 font-semibold hover:text-green-700 transition-all group"
           >

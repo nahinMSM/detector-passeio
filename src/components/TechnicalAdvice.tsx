@@ -31,8 +31,8 @@ export default function TechnicalAdvice({ finalScore, worstIndicatorName }: Prop
 
           <p className="text-gray-700 leading-relaxed">
             Seu passeio demonstra excelente controle emocional,
-            liderança equilibrada e comunicação clara com o cão.\n\n            A guia está leve, o ritmo consistente e sua postura transmite segurança.
-            Esse é o padrão ideal de condução.\n\n            Continue mantendo essa consistência para preservar
+            liderança equilibrada e comunicação clara com o cão.<br />A guia está leve, o ritmo consistente e sua postura transmite segurança.
+            Esse é o padrão ideal de condução.<br />Continue mantendo essa consistência para preservar
             estabilidade comportamental dentro e fora de casa.
           </p>
         </>

@@ -19,7 +19,7 @@ export default function PhoneGate({ onSubmit }: Props) {
       <input
         name="phone"
         required
-        className="border p-2 rounded-lg mr-2 text-center"
+        className="border p-2 rounded-lg mr-2 mb-3 text-center"
         placeholder="(00) 99999-9999"
       />
 

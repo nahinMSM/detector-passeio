@@ -1,4 +1,5 @@
 import ImgLogo from "../assets/logo-marca.png"
+import { FaWhatsapp } from 'react-icons/fa'
 
 interface Props {
   finalScore: number
@@ -30,15 +31,8 @@ export default function CTASection({ finalScore }: Props) {
             target="_blank"
             className="inline-flex items-center gap-3 text-green-600 font-semibold hover:text-green-700 transition-all group"
           >
-            <div className="bg-green-500 group-hover:bg-green-600 transition-all p-3 rounded-full shadow-md">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 text-white"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12.04 2C6.58 2 2.17 6.41 2.17 11.87c0 1.96.51 3.8 1.48 5.43L2 22l4.88-1.61c1.57.86 3.36 1.31 5.16 1.31 5.46 0 9.87-4.41 9.87-9.87C21.91 6.41 17.5 2 12.04 2zm0 17.99c-1.64 0-3.24-.44-4.64-1.26l-.33-.2-2.9.95.95-2.83-.21-.35a7.84 7.84 0 01-1.21-4.22c0-4.35 3.53-7.88 7.88-7.88 4.34 0 7.87 3.53 7.87 7.88 0 4.35-3.53 7.88-7.87 7.88z" />
-              </svg>
+            <div className="bg-green-500 text-[#F7F3EE] group-hover:bg-green-600 transition-all p-2 rounded-full shadow-md">
+              <FaWhatsapp size={32} />
             </div>
 
             Falar no WhatsApp

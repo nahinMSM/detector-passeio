@@ -1,36 +1,45 @@
 import { useState } from 'react'
 import UploadSection from './components/UploadSection'
 import ProcessingScreen from './components/ProcessingScreen'
-import PhoneGate from './components/PhoneGate'
 import ResultReport from './components/ResultReport'
 import { analyzeVideo } from './services/poseAnalyzer'
-// import { sendEmail } from './services/emailService'
+import type { AnalysisResult } from './services/poseAnalyzer'
 
 function App() {
-
   const [file, setFile] = useState<File | null>(null)
   const [loading, setLoading] = useState(false)
-  const [result, setResult] = useState<any>(null)
-  const [phoneUnlocked, setPhoneUnlocked] = useState(false)
+  const [result, setResult] = useState<AnalysisResult | null>(null)
 
   const handleUpload = async (file: File) => {
     setFile(file)
     setLoading(true)
 
-    const analysis = await analyzeVideo(file)
-
-    setResult(analysis)
-    setLoading(false)
-  }
-
-  const handlePhoneSubmit = async (phone: string) => {
-    // await sendEmail(phone, result)
-    console.log("Enviando resultado para:", phone, "com dados:", result)
-    setPhoneUnlocked(true)
+    try {
+      const analysis = await analyzeVideo(file)
+      setResult(analysis)
+    } catch (erro) {
+      console.error("Falha na análise:", erro)
+      setResult({
+        finalScore: 10,
+        visibilidade: 10,
+        movimento: 10,
+        estabilidade: 10,
+        erro: "Ocorreu um erro ao analisar o vídeo. Tente novamente."
+      })
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center p-8">
+
+      <a
+        href="https://curiosidadecanina.com.br"
+        className="mb-4 text-sm text-gray-600 hover:text-green-600 transition-all underline underline-offset-4"
+      >
+        ⬅️ Voltar para Curiosidade Canina
+      </a>
 
       <h1 className="text-4xl font-bold mb-6 text-center">
         Detector de Passeio Desorganizado
@@ -39,11 +48,7 @@ function App() {
       {!file && <UploadSection onUpload={handleUpload} />}
       {loading && <ProcessingScreen />}
 
-      {result && !phoneUnlocked && (
-        <PhoneGate onSubmit={handlePhoneSubmit} />
-      )}
-
-      {result && phoneUnlocked && (
+      {result && !loading && (
         <ResultReport result={result} />
       )}
 
